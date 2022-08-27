@@ -5,9 +5,9 @@ const mongoose = require('mongoose');
 const schema = require('./schema');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+require('dotenv').config();
 
-const MONGO_URI =
-  'mongodb+srv://LucasHenrique98:Lukkinha123@cluster0.1g1m3o4.mongodb.net/?retryWrites=true&w=majority';
+const MONGO_URI = process.env.MONGO_URI;
 if (!MONGO_URI) {
   throw new Error('You must provide a MongoLab URI');
 }
