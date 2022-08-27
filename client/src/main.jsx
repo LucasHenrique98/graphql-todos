@@ -6,7 +6,11 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000/',
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    dataIdFromObject: (object) => {
+      return object.id;
+    },
+  }),
 });
 
 ReactDOM.createRoot(document.getElementById('root')).render(
