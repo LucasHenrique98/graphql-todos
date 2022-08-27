@@ -4,6 +4,7 @@ const { graphqlHTTP } = require('express-graphql');
 const mongoose = require('mongoose');
 const schema = require('./schema');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const MONGO_URI =
   'mongodb+srv://LucasHenrique98:Lukkinha123@cluster0.1g1m3o4.mongodb.net/?retryWrites=true&w=majority';
@@ -18,6 +19,7 @@ mongoose.connection
   .on('error', (error) => console.log('Error connecting to DB:', error));
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 app.use(
   '/',
